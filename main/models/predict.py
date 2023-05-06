@@ -59,7 +59,7 @@ def predict(test_data, results, model_name):
         to produce it.
             ie.
             results['Model_Name'] = {
-            [<statsmodels.regression.linear_model.RegressionResultsWrapper> , 
+            [<statsmodels.regression.linear_model.RegressionResultsWrapper> ,
             "Price ~ I(Supply, Demand)]
             }
     model_name: str
@@ -81,9 +81,10 @@ def predict(test_data, results, model_name):
     formula = results[model_name][1]
 
     # Create regression friendly test DataFrame
-    yt, xt = dmatrices(formula, data=test_data, return_type='dataframe')
-    xt, model_params = get_dataframes_intersections(xt, xt.columns,
-                                                    model_params, model_params.index)
+    yt, xt = dmatrices(formula, data=test_data, return_type="dataframe")
+    xt, model_params = get_dataframes_intersections(
+        xt, xt.columns, model_params, model_params.index
+    )
     # Convert to NumPy arrays for performance
     model_params = np.asarray(model_params)
     yt = np.asarray(yt)
