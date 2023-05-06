@@ -30,6 +30,8 @@ proportion_survivors = (np.sum(data[0::, 0].astype(np.float))) / (
     np.size(data[0::, 0].astype(np.float))
 )
 
+def new_function(df_new):
+    return(df_new)
 
 # Reads in the 'train' file for a comparative result
 with open("train.csv", "rb") as f2:
